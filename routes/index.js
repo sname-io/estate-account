@@ -3,11 +3,11 @@ var router = express.Router();
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
-  res.render("index", { title: "Dairy Farm Account" });
+  res.redirect("/login");
 });
 
 router.get("/login", function (req, res, next) {
-  res.render("index", { title: "Dairy Farm Account" });
+  res.render("login", { title: "Dairy Farm Account" });
 });
 
 module.exports = router;
