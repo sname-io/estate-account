@@ -2,21 +2,21 @@
   "development": {
     "username": "postgres",
     "password": null,
-    "database": "estate_accounts_development",
+    "database": "estate_account_development",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
     "username": "postgres",
     "password": null,
-    "database": "estate_accounts_test",
+    "database": "estate_account_test",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "production": {
     "username": "postgres",
     "password": null,
-    "database": "estate_accounts_production",
+    "database": "estate_account_production",
     "host": "127.0.0.1",
     "dialect": "postgres"
   }
