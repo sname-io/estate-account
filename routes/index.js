@@ -43,6 +43,10 @@ router.get("/login", function (req, res, next) {
   res.render("login", { title: "Dairy Farm Account" });
 });
 
+router.get("/dashboard", function (req, res, next) {
+  res.render("dashboard", { title: "Welcome" });
+});
+
 router.post(
   "/login",
   passport.authenticate("local", {
