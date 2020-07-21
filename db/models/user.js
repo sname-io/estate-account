@@ -7,6 +7,11 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
+
+    isValidPassword(password) {
+      return this.password === password;
+    }
+
     static associate(models) {
       // define association here
     }
@@ -15,6 +20,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       username: {
         type: DataTypes.STRING,
+        allowNull: false,
         validate: {
           notNull: {
             msg: 'Please provide a value for "title"',
@@ -26,6 +32,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       password: {
         type: DataTypes.STRING,
+        allowNull: false,
         validate: {
           notNull: {
             msg: 'Please provide a value for "title"',

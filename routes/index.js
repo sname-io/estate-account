@@ -1,49 +1,26 @@
 var express = require("express");
 var router = express.Router();
+const { User } = require("../db/models");
 
 var passport = require("passport"),
   LocalStrategy = require("passport-local").Strategy;
 
-class User {
-  constructor() {
-    this.username = null;
-    this.id = 2;
-  }
-  static findOne({ username }, cb) {
-    if (username === "sname") {
-      const user = new User();
-      user.username = "sname";
-      cb(null, user);
-    } else {
-      cb(null, null);
-    }
-  }
-
-  static findById(id, cb) {
-    if (id === 2) {
-      return;
-    }
-  }
-
-  validPassword(password) {
-    return password === "osiname";
-  }
-}
-
 passport.use(
-  new LocalStrategy(function (username, password, done) {
-    User.findOne({ username: username }, function (err, user) {
-      if (err) {
-        return done(err);
+  new LocalStrategy(async function (username, password, done) {
+    try {
+      const user = await User.findOne({ where: { username: username } });
+      if (user && user.isValidPassword(password)) {
+        return done(null, user);
+      } else {
+        return done(null, false, { message: "Incorrect username / password" });
       }
-      if (!user) {
-        return done(null, false, { message: "Incorrect username." });
-      }
-      if (!user.validPassword(password)) {
-        return done(null, false, { message: "Incorrect password." });
-      }
-      return done(null, user);
-    });
+    } catch (err) {
+      console.log("Error:", err);
+
+      return done(null, false, {
+        message: "Something went wrong with your Signin",
+      });
+    }
   })
 );
 
