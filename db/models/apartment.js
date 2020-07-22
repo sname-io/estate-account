@@ -7,6 +7,10 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
+    address() {
+      return `Block ${this.block_number} flat ${this.flat}`;
+    }
+
     static associate(models) {
       // define association here
     }
