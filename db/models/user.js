@@ -1,5 +1,6 @@
 "use strict";
 const { Model } = require("sequelize");
+const bcrypt = require("bcrypt");
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     /**
@@ -8,8 +9,12 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
 
-    isValidPassword(password) {
-      return this.password === password;
+    async isValidPassword(password) {
+      try {
+        return await bcrypt.compare(password, this.password);
+      } catch (err) {
+        false;
+      }
     }
 
     static associate(models) {
@@ -48,9 +53,16 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
     {
+      hooks: {
+        beforeCreate: async (user, options) => {
+          const hash = await bcrypt.hash(user.password, 10);
+          user.password = hash;
+        },
+      },
       sequelize,
       modelName: "User",
     }
   );
+
   return User;
 };

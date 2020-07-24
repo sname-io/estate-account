@@ -7,12 +7,11 @@ afterAll(async (done) => {
 
 describe("User", () => {
   test("it should have role admin as default", async (done) => {
-    const user = User.build({
-      username: "Username",
+    const user = await User.create({
+      username: "username",
       password: "password",
     });
     expect(user.role).toEqual("admin");
-
     done();
   });
 });
