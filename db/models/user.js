@@ -28,10 +28,10 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         validate: {
           notNull: {
-            msg: 'Please provide a value for "title"',
+            msg: 'Please provide a value for "username"',
           },
           notEmpty: {
-            msg: 'Please provide a value for "title"',
+            msg: 'Please provide a value for "username"',
           },
         },
       },
@@ -40,10 +40,10 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         validate: {
           notNull: {
-            msg: 'Please provide a value for "title"',
+            msg: 'Please provide a value for "password"',
           },
           notEmpty: {
-            msg: 'Please provide a value for "title"',
+            msg: 'Please provide a value for "password"',
           },
         },
       },
