@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var { User } = require("../db/models");
+const HomeController = require("../controllers/home-controller");
 const passport = require("../config/passport/passport");
 
 /* GET home page. */
@@ -12,9 +13,7 @@ router.get("/login", function (req, res, next) {
   res.render("login", { title: "Dairy Farm Account" });
 });
 
-router.get("/dashboard", function (req, res, next) {
-  res.render("dashboard", { title: "Welcome" });
-});
+router.get("/dashboard", HomeController.dashboard);
 
 router.post(
   "/login",
