@@ -1,0 +1,12 @@
+extends ../layout
+
+block content
+  div.form-info
+    h4 New Bill
+    p Create a New Bill
+  form.new-bill(action='/', method="POST")
+    label(for='name') Name
+    input#form-name(type='text' name='name' placeholder='Name of Bill')
+    label(for='amount') Amount
+    input#form-payment(type='number' name='amount' placeholder='Amount')
+    input.newBill-btn(type='submit' value='Submit')

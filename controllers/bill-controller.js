@@ -4,7 +4,7 @@ class BillController {
   }
 
   static getNewBill(req, res, next) {
-    res.render("bills/form");
+    res.render("bills/new");
   }
 }
 

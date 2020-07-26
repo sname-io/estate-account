@@ -135,7 +135,6 @@ a {
   border-radius: 5px;
   flex-basis: 75%;
   font-size: 16px;
-  padding: 1em;
 }
 
 /* generate bill */
@@ -146,4 +145,59 @@ a {
   margin-top: 20px;
   padding: 10px 5px;
   width: 40%;
+}
+
+.new-bill {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.form-info {
+  border-bottom: 1px solid silver;
+  padding-left: 10px;
+}
+
+.form-info h4 {
+  margin-bottom: 2px;
+}
+
+.form-info p {
+  color: hsl(0, 0%, 52%);
+  font-size: 11px;
+  margin-top: 1px;
+}
+
+.new-bill label {
+  color: hsl(0, 0%, 52%);
+  display: block;
+  font-size: 15px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.new-bill input[type="text"],
+input[type="number"] {
+  border: 1px solid #ecf2fa;
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: #7379a3;
+  margin: auto;
+  padding: 10px 0 10px 10px;
+  width: 100%;
+}
+
+.newBill-btn {
+  background-color: rgba(23, 97, 253, 0.1);
+  border-radius: 4px;
+  color: #1761fd;
+  font-weight: bold;
+  /* margin-bottom: 20px; */
+  margin-top: 15px;
+  border: none;
+  padding: 10px;
+}
+
+.newBill-btn:hover {
+  background-color: #1761fd;
+  color: #fff;
 }

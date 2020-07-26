@@ -1,9 +1,0 @@
-extends ../layout
-
-block content
-  form(action='/login', method="POST")
-      label.form-label(for='name') Name
-      input.form-input#form-name(type='text' name='name' placeholder='Enter Name')
-      label.form-label(for='amount') Amount
-      input.form-input#form-payment(type='number' name='amount' placeholder='Enter Amount in Naira')
-      input.form-submit(type='submit' value='Submit')
