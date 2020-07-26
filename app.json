@@ -1,5 +1,8 @@
 {
-  "scripts": {
-    "postdeploy": "npm run db:create"
+  "environments": {
+    "review": {
+      "addons": ["heroku-postgresql:hobby-dev"],
+      "postdeploy": "npm run db:create && npm run db:migrate && npm run db:seed"
+    }
   }
 }
