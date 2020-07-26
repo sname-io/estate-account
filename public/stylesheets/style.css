@@ -131,3 +131,13 @@ a {
   font-size: 16px;
   padding: 1em;
 }
+
+/* generate bill */
+
+.btn-bill {
+  font-size: 20px;
+  margin-left: 20px;
+  margin-top: 20px;
+  padding: 10px 5px;
+  width: 40%;
+}
