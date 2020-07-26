@@ -1,6 +1,6 @@
 class HomeController {
   static dashboard(req, res, next) {
-    res.render("dashboard", { title: "Welcome" });
+    res.render("dashboard", { title: "Welcome", active: "dashboard" });
   }
 }
 

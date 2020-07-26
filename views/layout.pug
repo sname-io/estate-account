@@ -14,30 +14,38 @@ html
     main(class="container")
       section(class="side-bar")
         div(class="side-bar__navigation")
-          li(class="nav-item active")
-            span.fas.fa-home.nav-icon
-            a(href="#") Dashboard
-          li(class="nav-item")
-            span.fas.fa-file-invoice.nav-icon
-            a(href="/bills") Bills
-          li(class="nav-item")
-            span.fas.fa-money-check.nav-icon
-            a(href="#") Payments
-          li(class="nav-item")
-            span.fas.fa-building.nav-icon
-            a(href="#") Apartments
+          a(href="/dashboard")
+            div(class=`nav-item${ active === 'dashboard' ? ' active' : ''}`)
+              span.fas.fa-home.nav-icon
+              span Dashboard
+          a(href="/bills")
+            div(class=`nav-item${ active === 'bills' ? ' active' : ''}`)
+              span.fas.fa-file-invoice.nav-icon
+              span Bills
+          a(href="/payments")
+            div(class=`nav-item${ active === 'payments' ? ' active' : ''}`)
+              span.fas.fa-money-check.nav-icon
+              span Payments
+          a(href="/apartments")
+            div(class=`nav-item${ active === 'apartments' ? ' active' : ''}`)
+              span.fas.fa-building.nav-icon
+              span Apartments
         div(class="side-bar__others")
-          li(class="nav-item")
-            span.fas.fa-tools.nav-icon
-            a(href="#") Settings
-          li(class="nav-item")
-            span.fas.fa-bell.nav-icon
-            a(href="#") Notifications
-          li(class="nav-item")
-            span.fas.fa-key.nav-icon
-            a(href="#") Change Password
-          li(class="nav-item")
-            span.fas.fa-power-off.nav-icon
-            a(href="#") Logout
+          a(href="/settings")
+            div(class=`nav-item${ active === 'settings' ? ' active' : ''}`)
+              span.fas.fa-tools.nav-icon
+              span Settings
+          a(href="/notifications")
+            div(class=`nav-item${ active === 'notifications' ? ' active' : ''}`)
+              span.fas.fa-bell.nav-icon
+              span Notifications
+          a(href="/change-password")
+            div(class=`nav-item${ active === 'change password' ? ' active' : ''}`)
+              span.fas.fa-key.nav-icon
+              span Change Password
+                    a(href="/logout")
+            div(class='nav-item')
+              span.fas.fa-power-off.nav-icon
+              span Logout
       section(class="main-content")
         block content
