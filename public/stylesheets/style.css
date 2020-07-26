@@ -43,7 +43,7 @@ body.main-body {
   padding: 30px 20px;
 }
 
-.login-form label {
+.form-label {
   color: #7379a3;
   display: block;
   font-size: 15px;
@@ -51,7 +51,7 @@ body.main-body {
   margin-bottom: 10px;
 }
 
-.login-form input[type="text"] {
+.form-input {
   border: 1px solid #ecf2fa;
   border-radius: 5px;
   color: #7379a3;
@@ -59,16 +59,18 @@ body.main-body {
   width: 100%;
 }
 
-.login-form input[type="submit"] {
+.form-submit {
   background-color: #1761fd;
   border: none;
   border-radius: 5px;
   color: #fff;
+  font-size: 20px;
+  margin-left: 30px;
   margin-top: 30px;
   margin-bottom: 20px;
   text-align: center;
   padding: 10px 0;
-  width: 100%;
+  width: 90%;
 }
 
 /* layout */

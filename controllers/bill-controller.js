@@ -1,6 +1,10 @@
 class BillController {
-  static getAll(req, res, next) {
+  static getAllBills(req, res, next) {
     res.render("bills/index");
+  }
+
+  static getNewBill(req, res, next) {
+    res.render("bills/form");
   }
 }
 
