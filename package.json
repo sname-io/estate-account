@@ -4,13 +4,11 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "db:migrate": "npx sequelize db:migrate",
-    "db:create": "npx sequelize db:create",
-    "db:seed": "npx sequelize db:seed:all",
-    "migrate:reset": "npx sequelize db:migrate:undo:all && npm run db:migrate",
+    "migrate": "npx sequelize-cli db:migrate",
+    "migrate:reset": "npx sequelize-cli db:migrate:undo:all && npm run migrate",
     "test": "cross-env NODE_ENV=test jest --testTimeout=10000",
     "pretest": "cross-env NODE_ENV=test npm run migrate:reset",
-    "test:prepare": "cross-env NODE_ENV=test npm run db:create"
+    "test:prepare": "cross-env NODE_ENV=test npx sequelize-cli db:create"
   },
   "dependencies": {
     "bcrypt": "^5.0.0",
@@ -24,13 +22,13 @@
     "pg": "^8.3.0",
     "pg-hstore": "^2.3.3",
     "pug": "2.0.0-beta11",
-    "sequelize": "^6.3.3",
-    "sequelize-cli": "^6.2.0"
+    "sequelize": "^6.3.3"
   },
   "devDependencies": {
     "cheerio": "^1.0.0-rc.3",
     "cross-env": "^7.0.2",
     "jest": "^26.1.0",
+    "sequelize-cli": "^6.2.0",
     "supertest": "^4.0.2"
   }
 }
