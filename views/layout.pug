@@ -5,7 +5,39 @@ html
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
     meta(http-equiv='X-UA-Compatible' content='ie=edge')
     title= title
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/fontawesome.min.js")
     link(href='https://fonts.googleapis.com/css2?family=Roboto&display=swap' rel='stylesheet')
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css")
     link(rel='stylesheet', href="/stylesheets/style.css")
-  body
-    block content
+  body.main-body
+    header
+    main(class="container")
+      section(class="side-bar")
+        div(class="side-bar__navigation")
+          li(class="nav-item active")
+            span.fas.fa-home.nav-icon
+            a(href="#") Dashboard
+          li(class="nav-item")
+            span.fas.fa-file-invoice.nav-icon
+            a(href="/bills") Bills
+          li(class="nav-item")
+            span.fas.fa-money-check.nav-icon
+            a(href="#") Payments
+          li(class="nav-item")
+            span.fas.fa-building.nav-icon
+            a(href="#") Apartments
+        div(class="side-bar__others")
+          li(class="nav-item")
+            span.fas.fa-tools.nav-icon
+            a(href="#") Settings
+          li(class="nav-item")
+            span.fas.fa-bell.nav-icon
+            a(href="#") Notifications
+          li(class="nav-item")
+            span.fas.fa-key.nav-icon
+            a(href="#") Change Password
+          li(class="nav-item")
+            span.fas.fa-power-off.nav-icon
+            a(href="#") Logout
+      section(class="main-content")
+        block content
