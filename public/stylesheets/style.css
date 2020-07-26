@@ -131,3 +131,25 @@ a {
   font-size: 16px;
   padding: 1em;
 }
+
+/* error page */
+
+.error-page {
+  padding-top: 10em;
+  background: #1c3faa;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+}
+
+.error-page button {
+  background-color: transparent;
+  border-radius: 4px;
+  border: 1px solid white;
+  color: white;
+  cursor: pointer;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
