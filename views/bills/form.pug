@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  form.login-form(action='/login', method="POST")
+      label(for='name') Name
+      input#form-name(type='text' name='name' placeholder='Enter Name')
+      label(for='amount') Amount
+      input#form-payment(type='number' name='amount' placeholder='Enter Amount in Naira')
+      input(type='submit' value='Submit')
