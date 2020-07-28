@@ -139,14 +139,6 @@ a {
 
 /* generate bill */
 
-.btn-bill {
-  font-size: 20px;
-  margin-left: 20px;
-  margin-top: 20px;
-  padding: 10px 5px;
-  width: 40%;
-}
-
 .new-bill {
   padding-right: 20px;
   padding-left: 20px;
@@ -200,4 +192,99 @@ input[type="number"] {
 .newBill-btn:hover {
   background-color: #1761fd;
   color: #fff;
+}
+
+.card__title {
+  border-bottom: 1px solid #f1f1f1;
+  padding: 1.5em;
+}
+
+.card__body {
+  padding: 1em;
+}
+
+/* table */
+
+.table {
+  font-size: 14px;
+}
+
+.table__header {
+  background-color: #f1f5fa;
+  color: #303e67;
+  display: flex;
+  font-weight: bold;
+  padding: 1em;
+}
+
+.table__row {
+  border-top: 1px solid #eaf0f7;
+  display: flex;
+  padding: 1em;
+}
+
+.table.bills .table__header__column,
+.table.bills .table__row__column {
+  width: 100%;
+}
+
+/* .table.bills .table__row__column {
+  width: 100%;
+} */
+
+/* error page */
+
+.error-page {
+  padding-top: 10em;
+  background: #1c3faa;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+}
+
+.error-page button {
+  background-color: transparent;
+  border-radius: 4px;
+  border: 1px solid white;
+  color: white;
+  cursor: pointer;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* general buttons */
+
+.btn {
+  font-size: 13px;
+  border: none;
+}
+
+.btn--new {
+  padding: 7px 10px;
+  background-color: rgba(23, 97, 253, 0.1);
+  color: #1761fd;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+}
+
+.btn--new:hover {
+  background-color: #1761fd;
+  color: #fff;
+}
+
+.fa-plus {
+  margin-right: 3px;
+}
+
+.btn--new--bill {
+  float: right;
 }

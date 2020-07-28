@@ -1,4 +1,22 @@
 extends ../layout
 
 block content
-  button.btn-bill#myButton(type='submit') Generate New Bill
+
+  div(class="card__title clearfix")
+    span Bills
+    a(href="/bills/new")
+      button.btn.btn--new.btn--new--bill <i class="fas fa-plus"></i> New Bill
+  div(class="card__body")
+    div(class="table bills")
+      div(class="table__header")
+        div(class="table__header__column") Name
+        div(class="table__header__column") Amount
+        div(class="table__header__column") Created
+        div(class="table__header__column") Action
+      div(class="table__body")
+        each bill in bills
+          div(class="table__row")
+            div(class="table__row__column")= bill.name
+            div(class="table__row__column")= bill.formattedAmount()
+            div(class="table__row__column")= bill.formattedCreatedAt()
+            div(class="table__row__column") View Payments

@@ -4,31 +4,35 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "migrate": "npx sequelize-cli db:migrate",
-    "migrate:reset": "npx sequelize-cli db:migrate:undo:all && npm run migrate",
+    "db:migrate": "npx sequelize db:migrate",
+    "db:create": "npx sequelize db:create",
+    "db:seed": "npx sequelize db:seed:all",
+    "migrate:reset": "npx sequelize db:migrate:undo:all && npm run db:migrate",
     "test": "cross-env NODE_ENV=test jest --testTimeout=10000",
     "pretest": "cross-env NODE_ENV=test npm run migrate:reset",
-    "test:prepare": "cross-env NODE_ENV=test npx sequelize-cli db:create"
+    "test:prepare": "cross-env NODE_ENV=test npm run db:create"
   },
   "dependencies": {
     "bcrypt": "^5.0.0",
     "cookie-parser": "~1.4.4",
+    "currency-formatter": "^1.5.5",
     "debug": "~2.6.9",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
+    "moment": "^2.27.0",
     "morgan": "~1.9.1",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "pg": "^8.3.0",
     "pg-hstore": "^2.3.3",
     "pug": "2.0.0-beta11",
-    "sequelize": "^6.3.3"
+    "sequelize": "^6.3.3",
+    "sequelize-cli": "^6.2.0"
   },
   "devDependencies": {
     "cheerio": "^1.0.0-rc.3",
     "cross-env": "^7.0.2",
     "jest": "^26.1.0",
-    "sequelize-cli": "^6.2.0",
     "supertest": "^4.0.2"
   }
 }
