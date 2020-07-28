@@ -11,19 +11,22 @@ class BillController {
   }
 
   static getNewBill(req, res, next) {
-    res.render("bills/new");
+    res.render("bills/new", { name: "", amount: "" });
   }
 
   static async CreateBill(req, res, next) {
-    console.log(req);
     const { name, amount } = req.body;
 
-    const bill = await Bill.create({
-      name: name,
-      amount: amount,
-    });
+    try {
+      const bill = await Bill.create({
+        name: name,
+        amount: amount,
+      });
 
-    res.redirect("/bills");
+      res.redirect("/bills");
+    } catch (err) {
+      res.render("bills/new", { name: name, amount: amount });
+    }
   }
 }
 

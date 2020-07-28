@@ -7,9 +7,9 @@ block content
   form.new-bill(action='/bills', method="POST")
     div.form-group
       label(for='name') Name
-      input#form-name(type='text' name='name' placeholder='Name of Bill')
+      input#form-name(type='text' name='name' value=`${name}` placeholder='Name of Bill')
     div.form-group
       label(for='amount') Amount
-      input#form-payment(type='number' name='amount' placeholder='Amount')
+      input#form-payment(type='number' name='amount' value=`${amount}` placeholder='Amount')
     div.form-group
       input.btn--primary.btn--save(type='submit' value='Save')
