@@ -144,40 +144,6 @@ a {
   padding-left: 20px;
 }
 
-.form-info {
-  border-bottom: 1px solid silver;
-  padding-left: 10px;
-}
-
-.form-info h4 {
-  margin-bottom: 2px;
-}
-
-.form-info p {
-  color: hsl(0, 0%, 52%);
-  font-size: 11px;
-  margin-top: 1px;
-}
-
-.new-bill label {
-  color: hsl(0, 0%, 52%);
-  display: block;
-  font-size: 15px;
-  margin-top: 30px;
-  margin-bottom: 10px;
-}
-
-.new-bill input[type="text"],
-input[type="number"] {
-  border: 1px solid #ecf2fa;
-  border-radius: 5px;
-  box-sizing: border-box;
-  color: #7379a3;
-  margin: auto;
-  padding: 10px 0 10px 10px;
-  width: 100%;
-}
-
 .newBill-btn {
   background-color: rgba(23, 97, 253, 0.1);
   border-radius: 4px;
@@ -197,6 +163,13 @@ input[type="number"] {
 .card__title {
   border-bottom: 1px solid #f1f1f1;
   padding: 1.5em;
+}
+
+.card__hint {
+  color: hsl(0, 0%, 52%);
+  font-size: 11px;
+  margin-top: 1em;
+  margin-bottom: 0;
 }
 
 .card__body {
@@ -281,10 +254,40 @@ input[type="number"] {
   color: #fff;
 }
 
-.fa-plus {
-  margin-right: 3px;
+.btn--primary {
+  color: #fff;
+  background-color: #1761fd;
+  border-color: #1761fd;
+  border: 1px solid transparent;
+  border-radius: 0.3em;
+  padding: 0.7em 1em;
 }
 
 .btn--new--bill {
   float: right;
+}
+
+/* forms */
+.form-group {
+  margin-top: 1.5em;
+}
+
+label {
+  color: #7379a3;
+  font-size: 13px;
+}
+
+input[type="text"],
+input[type="number"] {
+  border: 1px solid #ecf2fa;
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: #7379a3;
+  margin-top: 1em;
+  padding: 10px 0 10px 10px;
+  width: 100%;
+}
+
+.fa-plus {
+  margin-right: 3px;
 }

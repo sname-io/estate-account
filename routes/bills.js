@@ -5,5 +5,6 @@ const BillController = require("../controllers/bill-controller");
 router.get("/", BillController.getAllBills);
 
 router.get("/new", BillController.getNewBill);
+router.post("/", BillController.CreateBill);
 
 module.exports = router;

@@ -1,12 +1,15 @@
 extends ../layout
 
 block content
-  div.form-info
-    h4 New Bill
-    p Create a New Bill
-  form.new-bill(action='/', method="POST")
-    label(for='name') Name
-    input#form-name(type='text' name='name' placeholder='Name of Bill')
-    label(for='amount') Amount
-    input#form-payment(type='number' name='amount' placeholder='Amount')
-    input.newBill-btn(type='submit' value='Submit')
+  div.card__title
+    span New Bill
+    p.card__hint Create a New Bill
+  form.new-bill(action='/bills', method="POST")
+    div.form-group
+      label(for='name') Name
+      input#form-name(type='text' name='name' placeholder='Name of Bill')
+    div.form-group
+      label(for='amount') Amount
+      input#form-payment(type='number' name='amount' placeholder='Amount')
+    div.form-group
+      input.btn--primary.btn--save(type='submit' value='Save')
