@@ -1,12 +1,22 @@
 "use strict";
 const { Model } = require("sequelize");
+var currencyFormatter = require("currency-formatter");
+const moment = require("moment");
+
 module.exports = (sequelize, DataTypes) => {
   class Bill extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
+    formattedAmount() {
+      return currencyFormatter.format(this.amount, {
+        code: "NGN",
+        precision: 0,
+      });
+    }
+
+    formattedCreatedAt() {
+      return moment(this.createdAt).format("ddd DD MMM, YYYY");
+      // moment().format("MMMM Do YYYY, h:mm:ss a");
+    }
+
     static associate(models) {
       // define association here
     }
