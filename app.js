@@ -33,12 +33,17 @@ app.use(function (req, res, next) {
 // error handler
 app.use(function (err, req, res, next) {
   // set locals, only providing error in development
-  res.locals.message = err.message;
+  if (err.status === 404) {
+    res.locals.message = "Oops. This page does not exist";
+  } else {
+    res.locals.message = "Oops. Something went wrong";
+  }
+
   res.locals.error = req.app.get("env") === "development" ? err : {};
 
   // render the error page
   res.status(err.status || 500);
-  res.render("error");
+  res.render("error", { status: err.status });
 });
 
 module.exports = app;
