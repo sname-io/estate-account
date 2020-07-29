@@ -5,14 +5,10 @@ block content
   div(class="card__body")
     div(class="table bills")
       div(class="table__header")
-        div(class="table__header__column") Name
-        div(class="table__header__column") Amount
-        div(class="table__header__column") Created
+        div(class="table__header__column") address
         div(class="table__header__column") Action
       div(class="table__body")
-        each bill in bills
+        each apartment in apartments
           div(class="table__row")
-            div(class="table__row__column")= bill.name
-            div(class="table__row__column")= bill.formattedAmount()
-            div(class="table__row__column")= bill.formattedCreatedAt()
+            div(class="table__row__column")= apartment.address()
             div(class="table__row__column") View Payments
