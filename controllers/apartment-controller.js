@@ -1,19 +1,24 @@
 const { Apartment } = require("../db/models");
+const paginate = require("express-paginate");
 
 class ApartmentController {
   static async getAllApartments(req, res, next) {
-    const { page, per_page } = req.query;
-    const limit = per_page || 10;
-    const offset = (page || 0) * limit;
-    const total = await Apartment.count;
+    const result = await Apartment.findAndCountAll({
+      limit: req.query.limit,
+      offset: req.skip,
+    });
 
-    const apartments = await Apartment.findAll({ limit, offset });
+    const itemCount = result.count;
+    const pageCount = Math.ceil(result.count / req.query.limit);
 
     res.render("apartments/index", {
-      apartments: apartments,
+      apartments: result.rows,
       title: "Apartments",
       active: "apartments",
-      total,
+      itemCount,
+      pageCount,
+      currentPage: req.query.page,
+      pages: paginate.getArrayPages(req)(5, pageCount, req.query.page),
     });
   }
 }
