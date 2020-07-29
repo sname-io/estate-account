@@ -88,6 +88,7 @@ body.main-body {
   color: #777d74;
   flex-basis: 25%;
   font-size: 16px;
+  height: fit-content;
   margin-right: 2em;
   padding: 1em;
 }
@@ -160,7 +161,6 @@ a {
   padding: 1em;
 }
 
-
 .table.bills .table__header__column,
 .table.bills .table__row__column {
   width: 100%;
@@ -191,4 +191,3 @@ a {
   padding-left: 1rem;
   padding-right: 1rem;
 }
-
