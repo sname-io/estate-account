@@ -1,7 +1,11 @@
 extends ../layout
 
 block content
-  div(class="card__title") Bills
+
+  div(class="card__title clearfix")
+    span Bills
+    a(href="/bills/new")
+      button.btn.btn--new.btn--new--bill <i class="fas fa-plus"></i> New Bill
   div(class="card__body")
     div(class="table bills")
       div(class="table__header")
