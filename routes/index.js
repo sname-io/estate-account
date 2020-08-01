@@ -14,11 +14,7 @@ router.get("/login", function (req, res, next) {
   res.render("login", { title: "Dairy Farm Account" });
 });
 
-router.get(
-  "/dashboard",
-  connectEnsureLogin.ensureLoggedIn(),
-  HomeController.dashboard
-);
+router.get("/dashboard", HomeController.dashboard);
 
 router.post(
   "/login",

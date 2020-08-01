@@ -6,7 +6,7 @@ var logger = require("morgan");
 var passport = require("passport");
 const paginate = require("express-paginate");
 const session = require("express-session");
-const { ensureLoggedIn } = require("connect-ensure-login");
+const authenticationMiddleware = require("./middlewares/authentication-middleware");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
@@ -38,9 +38,9 @@ app.use(passport.session());
 
 app.use(paginate.middleware(10, 50));
 
-app.use("/", indexRouter);
+app.use(authenticationMiddleware());
 
-app.use(ensureLoggedIn("/login"));
+app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/bills", billsRouter);
 app.use("/apartments", apartmentsRouter);
