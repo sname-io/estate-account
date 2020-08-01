@@ -5,6 +5,7 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var passport = require("passport");
 const paginate = require("express-paginate");
+const { ensureLoggedIn } = require("connect-ensure-login");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
@@ -27,6 +28,8 @@ app.use(passport.session());
 app.use(paginate.middleware(10, 50));
 
 app.use("/", indexRouter);
+
+app.use(ensureLoggedIn("/login"));
 app.use("/users", usersRouter);
 app.use("/bills", billsRouter);
 app.use("/apartments", apartmentsRouter);
