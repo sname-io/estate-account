@@ -138,27 +138,38 @@ a {
   font-size: 16px;
 }
 
-/* generate bill */
+/* general buttons */
 
-.new-bill {
-  padding-right: 20px;
-  padding-left: 20px;
-}
-
-.newBill-btn {
-  background-color: rgba(23, 97, 253, 0.1);
-  border-radius: 4px;
-  color: #1761fd;
-  font-weight: bold;
-  /* margin-bottom: 20px; */
-  margin-top: 15px;
+.btn {
+  font-size: 13px;
   border: none;
-  padding: 10px;
 }
 
-.newBill-btn:hover {
+.btn--new {
+  padding: 7px 10px;
+  background-color: rgba(23, 97, 253, 0.1);
+  color: #1761fd;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+}
+
+.btn--new:hover {
   background-color: #1761fd;
   color: #fff;
+}
+
+.btn--primary {
+  color: #fff;
+  background-color: #1761fd;
+  border-color: #1761fd;
+  border: 1px solid transparent;
+  border-radius: 0.3em;
+  padding: 0.7em 1em;
+}
+
+.btn--new--bill {
+  float: right;
 }
 
 .card__title {
