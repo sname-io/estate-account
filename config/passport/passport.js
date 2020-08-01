@@ -9,7 +9,6 @@ passport.use(
       if (user && user.isValidPassword(password)) {
         return done(null, user);
       } else {
-        console.log("error message here");
         return done(null, false, { message: "Incorrect username / password" });
       }
     } catch (err) {

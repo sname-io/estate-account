@@ -5,7 +5,6 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var passport = require("passport");
 const paginate = require("express-paginate");
-const { uuid } = require("uuidv4");
 const session = require("express-session");
 const { ensureLoggedIn } = require("connect-ensure-login");
 
@@ -35,19 +34,6 @@ app.use(
   })
 );
 app.use(passport.initialize());
-// app.use(
-//   session({
-//     genid: (req) => {
-//       console.log("Inside the session middleware");
-//       console.log(req.sessionID);
-//       return uuid(); // use UUIDs for session IDs
-//     },
-//     secret: "keyboard cat",
-//     resave: false,
-//     saveUninitialized: true,
-//   })
-// );
-
 app.use(passport.session());
 
 app.use(paginate.middleware(10, 50));
