@@ -43,7 +43,7 @@ body.main-body {
   padding: 30px 20px;
 }
 
-.login-form label {
+.form-label {
   color: #7379a3;
   display: block;
   font-size: 15px;
@@ -51,7 +51,7 @@ body.main-body {
   margin-bottom: 10px;
 }
 
-.login-form input[type="text"] {
+.form-input {
   border: 1px solid #ecf2fa;
   border-radius: 5px;
   color: #7379a3;
@@ -59,16 +59,22 @@ body.main-body {
   width: 100%;
 }
 
-.login-form input[type="submit"] {
+.form-submit {
   background-color: #1761fd;
   border: none;
   border-radius: 5px;
   color: #fff;
+  font-size: 20px;
   margin-top: 30px;
   margin-bottom: 20px;
   text-align: center;
   padding: 10px 0;
   width: 100%;
+}
+
+#form-submit {
+  margin-left: 30px;
+  width: 90%;
 }
 
 /* layout */
@@ -132,9 +138,39 @@ a {
   font-size: 16px;
 }
 
+/* generate bill */
+
+.new-bill {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.newBill-btn {
+  background-color: rgba(23, 97, 253, 0.1);
+  border-radius: 4px;
+  color: #1761fd;
+  font-weight: bold;
+  /* margin-bottom: 20px; */
+  margin-top: 15px;
+  border: none;
+  padding: 10px;
+}
+
+.newBill-btn:hover {
+  background-color: #1761fd;
+  color: #fff;
+}
+
 .card__title {
   border-bottom: 1px solid #f1f1f1;
   padding: 1.5em;
+}
+
+.card__hint {
+  color: hsl(0, 0%, 52%);
+  font-size: 11px;
+  margin-top: 1em;
+  margin-bottom: 0;
 }
 
 .card__body {
@@ -192,6 +228,7 @@ a {
   padding-left: 1rem;
   padding-right: 1rem;
 }
+
 
 /* pagination */
 .pagination {
@@ -252,4 +289,69 @@ a {
 .pagination__link.next {
   border-top-right-radius: 0.3em;
   border-bottom-right-radius: 0.3em;
+=======
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* general buttons */
+
+.btn {
+  font-size: 13px;
+  border: none;
+}
+
+.btn--new {
+  padding: 7px 10px;
+  background-color: rgba(23, 97, 253, 0.1);
+  color: #1761fd;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+}
+
+.btn--new:hover {
+  background-color: #1761fd;
+  color: #fff;
+}
+
+.btn--primary {
+  color: #fff;
+  background-color: #1761fd;
+  border-color: #1761fd;
+  border: 1px solid transparent;
+  border-radius: 0.3em;
+  padding: 0.7em 1em;
+}
+
+.btn--new--bill {
+  float: right;
+}
+
+/* forms */
+.form-group {
+  margin-top: 1.5em;
+}
+
+label {
+  color: #7379a3;
+  font-size: 13px;
+}
+
+input[type="text"],
+input[type="number"] {
+  border: 1px solid #ecf2fa;
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: #7379a3;
+  margin-top: 1em;
+  padding: 10px 0 10px 10px;
+  width: 100%;
+}
+
+.fa-plus {
+  margin-right: 3px;
+
 }
