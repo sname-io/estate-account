@@ -240,7 +240,6 @@ a {
   padding-right: 1rem;
 }
 
-
 /* pagination */
 .pagination {
   color: #303e67;
@@ -300,7 +299,8 @@ a {
 .pagination__link.next {
   border-top-right-radius: 0.3em;
   border-bottom-right-radius: 0.3em;
-=======
+}
+
 .clearfix::after {
   content: "";
   clear: both;
@@ -364,5 +364,4 @@ input[type="number"] {
 
 .fa-plus {
   margin-right: 3px;
-
 }
