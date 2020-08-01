@@ -7,8 +7,10 @@ passport.use(
     try {
       const user = await User.findOne({ where: { username: username } });
       if (user && user.isValidPassword(password)) {
+        console.log("error message herssse");
         return done(null, user);
       } else {
+        console.log("error message here");
         return done(null, false, { message: "Incorrect username / password" });
       }
     } catch (err) {
@@ -25,10 +27,13 @@ passport.serializeUser(function (user, done) {
   done(null, user.id);
 });
 
-passport.deserializeUser(function (id, done) {
-  User.findById(id, function (err, user) {
-    done(err, user);
-  });
+passport.deserializeUser(async function (id, done) {
+  try {
+    const user = await User.findByPk(id);
+    done(null, user);
+  } catch (err) {
+    done(err, null);
+  }
 });
 
 module.exports = passport;

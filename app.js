@@ -5,6 +5,8 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var passport = require("passport");
 const paginate = require("express-paginate");
+const { uuid } = require("uuidv4");
+const session = require("express-session");
 const { ensureLoggedIn } = require("connect-ensure-login");
 
 var indexRouter = require("./routes/index");
@@ -23,13 +25,28 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+app.use(session({ secret: "cats", resave: false, saveUninitialized: true }));
 app.use(passport.initialize());
+// app.use(
+//   session({
+//     genid: (req) => {
+//       console.log("Inside the session middleware");
+//       console.log(req.sessionID);
+//       return uuid(); // use UUIDs for session IDs
+//     },
+//     secret: "keyboard cat",
+//     resave: false,
+//     saveUninitialized: true,
+//   })
+// );
+
 app.use(passport.session());
+
 app.use(paginate.middleware(10, 50));
 
 app.use("/", indexRouter);
 
-app.use(ensureLoggedIn("/login"));
+// app.use(ensureLoggedIn("/login"));
 app.use("/users", usersRouter);
 app.use("/bills", billsRouter);
 app.use("/apartments", apartmentsRouter);
