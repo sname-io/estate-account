@@ -1,0 +1,15 @@
+extends ../layout
+
+block content
+  div(class="card__title") Apartments
+  div(class="card__body")
+    div(class="table bills")
+      div(class="table__header")
+        div(class="table__header__column") address
+        div(class="table__header__column") Action
+      div(class="table__body")
+        each apartment in apartments
+          div(class="table__row")
+            div(class="table__row__column")= apartment.address()
+            div(class="table__row__column") View Payments
+    include ../partials/_pagination
