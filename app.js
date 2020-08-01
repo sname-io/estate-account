@@ -5,11 +5,15 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var passport = require("passport");
 const paginate = require("express-paginate");
+const session = require("express-session");
+const authenticationMiddleware = require("./middlewares/authentication-middleware");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var billsRouter = require("./routes/bills");
 var apartmentsRouter = require("./routes/apartments");
+
+require("dotenv").config();
 
 var app = express();
 
@@ -22,9 +26,19 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true,
+  })
+);
 app.use(passport.initialize());
 app.use(passport.session());
+
 app.use(paginate.middleware(10, 50));
+
+app.use(authenticationMiddleware());
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);

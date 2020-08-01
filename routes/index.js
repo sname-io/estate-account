@@ -3,9 +3,10 @@ var router = express.Router();
 var { User } = require("../db/models");
 const HomeController = require("../controllers/home-controller");
 const passport = require("../config/passport/passport");
+const connectEnsureLogin = require("connect-ensure-login");
 
 /* GET home page. */
-router.get("/", async function (req, res, next) {
+router.get("/", function (req, res, next) {
   res.redirect("/login");
 });
 
