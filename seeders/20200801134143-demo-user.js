@@ -8,12 +8,14 @@ module.exports = {
         {
           username: "admin",
           password: "dairyfarm",
+          role: "admin",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
           username: "super_admin",
-          amount: "dairyfarm",
+          password: "dairyfarm",
+          role: "superAdmin",
           createdAt: new Date(),
           updatedAt: new Date(),
         },
