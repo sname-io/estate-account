@@ -7,7 +7,6 @@ passport.use(
     try {
       const user = await User.findOne({ where: { username: username } });
       if (user && user.isValidPassword(password)) {
-        console.log("error message herssse");
         return done(null, user);
       } else {
         console.log("error message here");

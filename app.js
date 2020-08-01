@@ -14,6 +14,8 @@ var usersRouter = require("./routes/users");
 var billsRouter = require("./routes/bills");
 var apartmentsRouter = require("./routes/apartments");
 
+require("dotenv").config();
+
 var app = express();
 
 // view engine setup
@@ -25,7 +27,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
-app.use(session({ secret: "cats", resave: false, saveUninitialized: true }));
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true,
+  })
+);
 app.use(passport.initialize());
 // app.use(
 //   session({
@@ -46,7 +54,7 @@ app.use(paginate.middleware(10, 50));
 
 app.use("/", indexRouter);
 
-// app.use(ensureLoggedIn("/login"));
+app.use(ensureLoggedIn("/login"));
 app.use("/users", usersRouter);
 app.use("/bills", billsRouter);
 app.use("/apartments", apartmentsRouter);
