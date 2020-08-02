@@ -18,7 +18,9 @@ module.exports = (sequelize, DataTypes) => {
     }
 
     static associate(models) {
-      // define association here
+      Bill.hasMany(models.Payment, {
+        onDelete: "CASCADE",
+      });
     }
   }
   Bill.init(
