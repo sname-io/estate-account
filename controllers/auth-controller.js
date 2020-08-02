@@ -3,6 +3,7 @@ const passport = require("../config/passport/passport");
 class AuthController {
   static logout(req, res) {
     req.logout();
+    req.flash("success", "Logged out successfully!");
     res.redirect("/login");
   }
 
@@ -15,7 +16,9 @@ class AuthController {
   }
 
   static getLogin(req, res, next) {
-    res.render("login", { title: "Dairy Farm Account" });
+    res.render("login", {
+      title: "Dairy Farm Account",
+    });
   }
 }
 

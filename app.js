@@ -7,7 +7,7 @@ var passport = require("passport");
 const paginate = require("express-paginate");
 const session = require("express-session");
 const authenticationMiddleware = require("./middlewares/authentication-middleware");
-const flash = require("connect-flash");
+const flash = require("express-flash");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
