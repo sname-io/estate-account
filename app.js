@@ -7,6 +7,7 @@ var passport = require("passport");
 const paginate = require("express-paginate");
 const session = require("express-session");
 const authenticationMiddleware = require("./middlewares/authentication-middleware");
+const flash = require("connect-flash");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
@@ -35,10 +36,9 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-
 app.use(paginate.middleware(10, 50));
-
 app.use(authenticationMiddleware());
+app.use(flash());
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
