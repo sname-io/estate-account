@@ -1,0 +1,9 @@
+extends ../layout
+
+block content
+  select.bills-dropdown(name="billId")
+    each bill in bills
+      option(value=`${bill.id}`)=bill.name
+  select.apartments-dropdown(name="apartmentId")
+    each apartment in apartments
+      option(value=`${apartment.id}`)=apartment.address()

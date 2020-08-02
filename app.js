@@ -13,6 +13,7 @@ var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var billsRouter = require("./routes/bills");
 var apartmentsRouter = require("./routes/apartments");
+var paymentsRouter = require("./routes/payments");
 
 require("dotenv").config();
 
@@ -30,8 +31,9 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: true,
+    maxAge: Date.now() + 30 * 86400 * 1000,
+    // resave: false,
+    // saveUninitialized: true,
   })
 );
 app.use(passport.initialize());
@@ -44,6 +46,7 @@ app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/bills", billsRouter);
 app.use("/apartments", apartmentsRouter);
+app.use("/payments", paymentsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
