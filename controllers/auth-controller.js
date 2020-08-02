@@ -11,7 +11,7 @@ class AuthController {
     return passport.authenticate("local", {
       successRedirect: "/dashboard",
       failureRedirect: "/login",
-      // failureFlash: true,
+      failureFlash: true,
     });
   }
 
