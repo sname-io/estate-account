@@ -1,28 +1,18 @@
 var express = require("express");
 var router = express.Router();
-var { User } = require("../db/models");
 const HomeController = require("../controllers/home-controller");
-const passport = require("../config/passport/passport");
-const connectEnsureLogin = require("connect-ensure-login");
+const AuthController = require("../controllers/auth-controller");
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
   res.redirect("/login");
 });
 
-router.get("/login", function (req, res, next) {
-  res.render("login", { title: "Dairy Farm Account" });
-});
+router.get("/login", AuthController.getLogin);
 
 router.get("/dashboard", HomeController.dashboard);
 
-router.post(
-  "/login",
-  passport.authenticate("local", {
-    successRedirect: "/dashboard",
-    failureRedirect: "/login",
-    // failureFlash: true,
-  })
-);
+router.post("/login", AuthController.login());
+router.get("/logout", AuthController.logout);
 
 module.exports = router;

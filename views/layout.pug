@@ -14,6 +14,7 @@ html
     script(src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js")
     script(src="/javascript/index.js")
   body.main-body
+    include ./partials/_flash
     header
     main(class="container")
       section(class="side-bar")
@@ -47,7 +48,7 @@ html
             div(class=`nav-item${ active === 'change password' ? ' active' : ''}`)
               span.fas.fa-key.nav-icon
               span Change Password
-                    a(href="/logout")
+          a(href="/logout")
             div(class='nav-item')
               span.fas.fa-power-off.nav-icon
               span Logout

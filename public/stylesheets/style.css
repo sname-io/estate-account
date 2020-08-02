@@ -4,6 +4,7 @@
 
 body {
   font-family: "Roboto", sans-serif;
+  margin: 0;
 }
 
 body.main-body {
@@ -364,4 +365,27 @@ input[type="number"] {
 
 .fa-plus {
   margin-right: 3px;
+}
+
+/* alerts */
+
+.alert {
+  border: 1px solid transparent;
+  padding: 1.2em 0;
+  margin: auto;
+  margin-bottom: 1rem;
+  text-align: center;
+  width: 100%;
+}
+
+.alert-success {
+  background-color: #e1faf0;
+  border-color: #c6fde7;
+  color: #15a569;
+}
+
+.alert-danger {
+  background-color: #fee6eb;
+  border-color: #fcc6d1;
+  color: #a21b1b;
 }
