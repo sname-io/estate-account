@@ -383,3 +383,9 @@ input[type="number"] {
   border-color: #c6fde7;
   color: #15a569;
 }
+
+.alert-danger {
+  background-color: #fee6eb;
+  border-color: #fcc6d1;
+  color: #f5325c;
+}
