@@ -18,7 +18,7 @@ class PaymentController {
         ApartmentId,
         amount,
         adminId: req.user.id,
-        paid_at: new Date(),
+        paidAt: new Date(),
       });
       req.flash("success", "Payment recorded successfully");
       res.redirect("/dashboard");

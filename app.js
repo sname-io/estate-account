@@ -5,7 +5,7 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var passport = require("passport");
 const paginate = require("express-paginate");
-const session = require("express-session");
+var cookieSession = require("cookie-session");
 const authenticationMiddleware = require("./middlewares/authentication-middleware");
 const flash = require("express-flash");
 
@@ -29,11 +29,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(
-  session({
-    secret: process.env.SESSION_SECRET,
-    maxAge: Date.now() + 30 * 86400 * 1000,
-    resave: true,
-    saveUninitialized: true,
+  cookieSession({
+    name: "session",
+    keys: [process.env.SESSION_SECRET],
+
+    // Cookie Options
+    maxAge: 72 * 60 * 60 * 1000, // 24 hours
   })
 );
 app.use(passport.initialize());
