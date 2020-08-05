@@ -20,9 +20,7 @@ module.exports = (sequelize, DataTypes) => {
   Payment.init(
     {
       amount: DataTypes.INTEGER,
-      apartmentId: DataTypes.INTEGER,
       adminId: DataTypes.INTEGER,
-      billId: DataTypes.INTEGER,
       approved_at: DataTypes.DATE,
     },
     {

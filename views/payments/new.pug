@@ -1,9 +1,24 @@
 extends ../layout
 
 block content
-  select.bills-dropdown(name="billId")
-    each bill in bills
-      option(value=`${bill.id}`)=bill.name
-  select.apartments-dropdown(name="apartmentId")
-    each apartment in apartments
-      option(value=`${apartment.id}`)=apartment.address()
+  div.card__title
+    span New Payment
+    p.card__hint Record a payment
+  form.new-bill(action='/payments', method="POST")
+    div.card__body
+      div.form-group
+        label(for='BillId') Bill
+        select.bills-dropdown(name="BillId")
+          each bill in bills
+            option(value=`${bill.id}`)=bill.name
+      div.form-group
+        label(for='ApartmentId') Apartment
+        select.apartments-dropdown(name="ApartmentId")
+          each apartment in apartments
+            option(value=`${apartment.id}`)=apartment.address()
+      div.form-group
+        label(for='amount') Amount
+        input#form-payment(type='number' name='amount' value=`${amount}` placeholder='Amount')
+      div.form-group
+        input.btn--primary.btn--save(type='submit' value='Save')
+
