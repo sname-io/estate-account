@@ -5,7 +5,7 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var passport = require("passport");
 const paginate = require("express-paginate");
-const session = require("express-session");
+var cookieSession = require("cookie-session");
 const authenticationMiddleware = require("./middlewares/authentication-middleware");
 const flash = require("express-flash");
 
@@ -13,6 +13,7 @@ var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var billsRouter = require("./routes/bills");
 var apartmentsRouter = require("./routes/apartments");
+var paymentsRouter = require("./routes/payments");
 
 require("dotenv").config();
 
@@ -28,10 +29,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(
-  session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: true,
+  cookieSession({
+    name: "session",
+    keys: [process.env.SESSION_SECRET],
+
+    // Cookie Options
+    maxAge: 72 * 60 * 60 * 1000, // 24 hours
   })
 );
 app.use(passport.initialize());
@@ -44,6 +47,7 @@ app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/bills", billsRouter);
 app.use("/apartments", apartmentsRouter);
+app.use("/payments", paymentsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
