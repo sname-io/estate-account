@@ -1,0 +1,26 @@
+extends ../layout
+
+block content
+
+  div(class="card__title clearfix")
+    span Payments
+    a(href="/payments/new")
+      button.btn.btn--new.btn--new--bill <i class="fas fa-plus"></i> New Payment
+  div(class="card__body")
+    table#paymentsTable.clearfix
+      thead
+        tr
+          th Apartment
+          th Bill
+          th Amount
+          th Aproved At
+          th Action
+      tbody
+         each payment in payments
+          tr
+            td=payment.Apartment.address()
+            td=payment.Bill.name
+            td= payment.amount
+            td= payment.approvedAt
+            td Approve View
+

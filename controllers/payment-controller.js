@@ -5,7 +5,23 @@ class PaymentController {
   static async getNewPayment(req, res, next) {
     const bills = await Bill.findAll();
     const apartments = await Apartment.findAll();
-    res.render("payments/new", { bills: bills, apartments: apartments });
+    res.render("payments/new", {
+      bills: bills,
+      apartments: apartments,
+      active: "payments",
+    });
+  }
+
+  static async getAllPayments(req, res, next) {
+    const payments = await Payment.findAll({
+      include: [Bill, Apartment],
+    });
+
+    res.render("payments/index", {
+      payments,
+      title: "Payments",
+      active: "payments",
+    });
   }
 
   static async CreatePayment(req, res, next) {
