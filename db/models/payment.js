@@ -10,10 +10,12 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       Payment.belongsTo(models.Apartment, {
         onDelete: "CASCADE",
+        foreignKey: "apartmentId",
       });
 
       Payment.belongsTo(models.Bill, {
         onDelete: "CASCADE",
+        foreignKey: "billId",
       });
     }
   }
@@ -21,6 +23,8 @@ module.exports = (sequelize, DataTypes) => {
     {
       amount: DataTypes.INTEGER,
       adminId: DataTypes.INTEGER,
+      apartmentId: DataTypes.INTEGER,
+      billId: DataTypes.INTEGER,
       approved_at: DataTypes.DATE,
     },
     {

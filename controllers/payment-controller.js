@@ -1,5 +1,4 @@
 const { Payment } = require("../db/models");
-const BillController = require("./bill-controller");
 const { Bill, Apartment } = require("../db/models");
 
 class PaymentController {
@@ -10,12 +9,12 @@ class PaymentController {
   }
 
   static async CreatePayment(req, res, next) {
-    const { ApartmentId, amount, BillId } = req.body;
+    const { apartmentId, amount, billId } = req.body;
 
     try {
       await Payment.create({
-        BillId,
-        ApartmentId,
+        billId,
+        apartmentId,
         amount,
         adminId: req.user.id,
         paidAt: new Date(),

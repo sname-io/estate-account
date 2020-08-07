@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       Apartment.hasMany(models.Payment, {
         onDelete: "CASCADE",
+        foreignKey: "apartmentId",
       });
     }
   }

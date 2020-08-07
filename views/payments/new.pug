@@ -8,12 +8,12 @@ block content
     div.card__body
       div.form-group
         label(for='BillId') Bill
-        select.bills-dropdown(name="BillId")
+        select.bills-dropdown(name="billId")
           each bill in bills
             option(value=`${bill.id}`)=bill.name
       div.form-group
-        label(for='ApartmentId') Apartment
-        select.apartments-dropdown(name="ApartmentId")
+        label(for='apartmentId') Apartment
+        select.apartments-dropdown(name="apartmentId")
           each apartment in apartments
             option(value=`${apartment.id}`)=apartment.address()
       div.form-group

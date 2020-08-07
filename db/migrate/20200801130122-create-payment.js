@@ -15,13 +15,28 @@ module.exports = {
       apartmentId: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        references: {
+          model: "Apartments",
+          key: "id",
+          as: "apartmentId",
+        },
       },
       adminId: {
         type: Sequelize.INTEGER,
+        references: {
+          model: "Users",
+          key: "id",
+          as: "adminId",
+        },
       },
       billId: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        references: {
+          model: "Bills",
+          key: "id",
+          as: "billId",
+        },
       },
       approved_at: {
         type: Sequelize.DATE,
