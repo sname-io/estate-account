@@ -1,1 +1,1 @@
-release: npx sequelize db:migrate
+release: ./bin/scripts/admin_setup
