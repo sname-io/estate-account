@@ -2,6 +2,12 @@
   box-sizing: border-box;
 }
 
+header {
+  background-color: white;
+  padding: 1em 1em;
+  margin-bottom: 0em;
+}
+
 body {
   font-family: "Roboto", sans-serif;
   margin: 0;
@@ -84,7 +90,7 @@ body.main-body {
   display: block !important;
   color: #7379a3;
   margin-top: 1em !important;
-  width: 56em !important;
+  width: 100% !important;
 }
 
 .select2-container .select2-selection.select2-selection--single {
@@ -447,6 +453,18 @@ input[type="number"] {
   color: #a21b1b;
 }
 
+.mobile-nav {
+  display: none;
+}
+
+.mobile-nav #close-menu,
+.mobile-nav #open-menu {
+  cursor: pointer;
+}
+
+#close-menu {
+  display: none;
+}
 /* mobile */
 @media only screen and (max-width: 768px) {
   .container {
@@ -457,6 +475,13 @@ input[type="number"] {
   .side-bar {
     display: none;
     width: 100%;
+    z-index: 3;
+    position: fixed;
+    top: 50px;
+  }
+
+  .card__hint {
+    display: none;
   }
 
   .main-content {
@@ -471,5 +496,10 @@ input[type="number"] {
     margin: auto;
     margin-top: 0;
     width: 100%;
+  }
+
+  .mobile-nav {
+    display: block;
+    padding-left: 1em;
   }
 }
