@@ -6,11 +6,8 @@ if (process.env.ADMINS) {
   ADMINS.forEach(async (a, index) => {
     const [admin, password] = a.split(":");
     const user = await User.findOne({ where: { username: admin } });
-    if (user) {
-      console.log(user);
-    } else {
-      // await User.create({ username: admin, password: password });
-      console.log("no usr");
+    if (!user) {
+      await User.create({ username: admin, password: password });
     }
   });
 }
