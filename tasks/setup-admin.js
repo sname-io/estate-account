@@ -7,7 +7,12 @@ if (process.env.ADMINS) {
     const [admin, password] = a.split(":");
     const user = await User.findOne({ where: { username: admin } });
     if (!user) {
+      console.log("adding");
       await User.create({ username: admin, password: password });
     }
   });
+
+  console.log("done");
+} else {
+  console.log("no admin config");
 }
