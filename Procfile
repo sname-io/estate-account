@@ -1,1 +1,1 @@
-release: npx sequelize db:migrate
+release: ./release-tasks.sh

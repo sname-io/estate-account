@@ -11,7 +11,8 @@
     "migrate:reset": "npx sequelize db:migrate:undo:all && npm run db:migrate",
     "test": "cross-env NODE_ENV=test jest --testTimeout=10000",
     "pretest": "cross-env NODE_ENV=test npm run migrate:reset",
-    "test:prepare": "cross-env NODE_ENV=test npm run db:create"
+    "test:prepare": "cross-env NODE_ENV=test npm run db:create",
+    "admin:create": "node ./tasks/setup-admin"
   },
   "dependencies": {
     "bcrypt": "^5.0.0",
