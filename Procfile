@@ -1,1 +1,1 @@
-release: ./release-tasks.sh
+release: npm run db:migrate
