@@ -13,7 +13,14 @@ class PaymentController {
   }
 
   static async getAllPayments(req, res, next) {
+    const { bill, apartment } = req.query;
+    let filters = {
+      ...(bill && { billId: bill }),
+      ...(apartment && { apartmentId: apartment }),
+    };
+
     const payments = await Payment.findAll({
+      where: filters,
       include: [Bill, Apartment],
     });
 

@@ -11,5 +11,6 @@ block content
         each apartment in apartments
           div(class="table__row")
             div(class="table__row__column")= apartment.address()
-            div(class="table__row__column") View Payments
+            div(class="table__row__column")
+              a(href=`/payments?apartment=${apartment.id}`) View Payments
     include ../partials/_pagination

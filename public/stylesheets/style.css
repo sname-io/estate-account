@@ -354,6 +354,7 @@ th {
 }
 
 .paginate_button {
+  cursor: pointer;
   position: relative;
   display: block;
   padding: 0.5rem 0.75rem;
@@ -373,6 +374,36 @@ th {
   color: #fff;
   background-color: #1761fd;
   border-color: #1761fd;
+}
+
+.paginate_button:focus {
+  outline: none;
+}
+
+.dataTables_paginate span {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#total-payment {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1em;
+  /* display: none; */
+}
+
+#total-payment .title {
+  line-height: 2;
+  font-family: "Roboto", sans-serif;
+  font-size: 0.8125rem;
+  color: #1d2c48 !important;
+  margin-right: 1em;
+}
+
+#total-payment #value {
+  color: #1d2c48;
+  font-weight: 600;
+  font-size: 20px;
 }
 
 /* error page */
