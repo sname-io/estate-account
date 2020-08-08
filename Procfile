@@ -1,1 +1,1 @@
-release: ./release-tasks.sh
+release: chmod a+x ./release-tasks.sh
