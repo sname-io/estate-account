@@ -1,1 +1,1 @@
-release: .bin/scripts/admin_setup
+release: ./bin/scripts/admin_setup
