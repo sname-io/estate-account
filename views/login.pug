@@ -5,9 +5,9 @@ block content
     header.login-header
       h1= title
       p Sign in to continue
-    form.login-form(action='/login', method="POST")
+    form.login-form(action='/login', method="POST", autocomplete="off")
       label.form-label(for='username') Username
-      input.form-input#username(type='text' name='username' placeholder='Enter Username')
+      input.form-input#username(type='text' name='username' placeholder='Enter Username' autocomplete="new-password")
       label.form-label(for='password') Password
       input.form-input#password(type='password' name='password' placeholder='Enter Password')
       input.form-submit(type='submit' value='Log in')

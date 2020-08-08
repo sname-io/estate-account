@@ -19,4 +19,6 @@ block content
             div(class="table__row__column")= bill.name
             div(class="table__row__column")= bill.formattedAmount()
             div(class="table__row__column")= bill.formattedCreatedAt()
-            div(class="table__row__column") View Payments
+            div(class="table__row__column")
+              a(href=`/payments?bill=${bill.id}`)
+                button.btn.btn--link-to View Payments

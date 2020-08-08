@@ -43,17 +43,46 @@ class PaymentController {
         paidAt: new Date(),
       });
       req.flash("success", "Payment recorded successfully");
-      res.redirect("/dashboard");
+      res.redirect("/payments");
     } catch (err) {
       console.log("insertion error is here: ", err);
       const bills = await Bill.findAll();
       const apartments = await Apartment.findAll();
-      req.flash("errorr", "Could not record payment");
+      req.flash("error", "Could not record payment");
       res.render("payments/new", {
         amount,
         bills,
         apartments,
       });
+    }
+  }
+
+  static async approvePayment(req, res) {
+    const { id } = req.params;
+
+    try {
+      const payment = await Payment.findByPk(id);
+      payment.approvedAt = new Date();
+      await payment.save;
+      req.flash("success", "Payment Approved");
+    } catch (err) {
+      req.flash("error", "Could not approve payment");
+    }
+    res.redirect("payments/index");
+  }
+
+  static async getPaymentById(req, res) {
+    const { id } = req.params;
+    try {
+      const payment = await Payment.findByPk(id);
+      res.render(`payments/show`, {
+        payment: payment,
+        title: "Payments",
+        active: "payments",
+      });
+    } catch (err) {
+      req.flash("error", "Could not find payment");
+      res.redirect("payments/index");
     }
   }
 }

@@ -5,6 +5,7 @@ $(document).ready(function () {
   var paymentsTable = $("#paymentsTable").DataTable({
     dom: "lfrtBp",
     buttons: ["excel", "pdf", "print"],
+    order: [[4, "desc"]],
   });
 
   try {
@@ -13,20 +14,16 @@ $(document).ready(function () {
       currency: "NGN",
       maximumFractionDigits: 0,
       minimumFractionDigits: 0,
-    }).format(paymentsTable.column(2).data().sum());
+    }).format(paymentsTable.column(3).data().sum());
     $("#value").append(totalPayment);
   } catch (e) {}
 
   $("#open-menu").on("click", function (e) {
     // $(".side-bar").toggle("display");
     $(".side-bar").show();
-    $("#open-menu").hide();
-    $("#close-menu").show();
   });
   $("#close-menu").on("click", function (e) {
     // $(".side-bar").toggle("display");
     $(".side-bar").hide();
-    $("#close-menu").hide();
-    $("#open-menu").show();
   });
 });

@@ -75,6 +75,10 @@ th {
   flex-wrap: wrap;
 }
 
+.view {
+  color: #2f4d7e;
+}
+
 .paginate_button {
   cursor: pointer;
   position: relative;

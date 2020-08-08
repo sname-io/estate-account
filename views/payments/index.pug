@@ -10,6 +10,7 @@ block content
     table#paymentsTable.clearfix
       thead
         tr
+          th Receipt Number
           th Apartment
           th Bill
           th Amount
@@ -18,11 +19,15 @@ block content
       tbody
          each payment in payments
           tr
+            td
+              a(href=`/payments/${payment.id}`, class="view")=payment.receiptNumber
             td=payment.Apartment.address()
             td=payment.Bill.name
             td= payment.formattedAmount()
             td= payment.formattedCreatedAt()
-            td Approve View
+            td
+              a(href=`/payments/${payment.id}/approve`)
+                button.btn.btn--link-to Approve
     div#total-payment
       div.title Total Payments: &nbsp;
       div#value

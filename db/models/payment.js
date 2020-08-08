@@ -1,6 +1,7 @@
 "use strict";
 var currencyFormatter = require("currency-formatter");
 const moment = require("moment");
+var srs = require("secure-random-string");
 
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
@@ -28,15 +29,24 @@ module.exports = (sequelize, DataTypes) => {
       });
     }
   }
+
   Payment.init(
     {
       amount: DataTypes.INTEGER,
       adminId: DataTypes.INTEGER,
       apartmentId: DataTypes.INTEGER,
       billId: DataTypes.INTEGER,
+      receiptNumber: DataTypes.STRING,
       approved_at: DataTypes.DATE,
     },
     {
+      hooks: {
+        beforeCreate: async (payment, options) => {
+          const sr = await srs({ length: 10, alphanumeric: true });
+
+          payment.receiptNumber = sr.toUpperCase();
+        },
+      },
       sequelize,
       modelName: "Payment",
     }
