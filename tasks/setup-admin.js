@@ -8,7 +8,8 @@ if (process.env.ADMINS) {
     const user = await User.findOne({ where: { username: admin } });
     if (!user) {
       console.log("adding");
-      await User.create({ username: admin, password: password });
+      const role = admin == "superadmin" ? "superAdmin" : "admin";
+      await User.create({ username: admin, password: password, role: role });
     }
   });
 
