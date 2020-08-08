@@ -13,15 +13,15 @@ block content
           th Apartment
           th Bill
           th Amount
-          th Aproved At
+          th Paid On
           th Action
       tbody
          each payment in payments
           tr
             td=payment.Apartment.address()
             td=payment.Bill.name
-            td= payment.amount
-            td= payment.approvedAt
+            td= payment.formattedAmount()
+            td= payment.formattedCreatedAt()
             td Approve View
     div#total-payment
       div.title Total Payments: &nbsp;

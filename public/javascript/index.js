@@ -3,9 +3,8 @@ $(document).ready(function () {
   $(".bills-dropdown").select2();
 
   var paymentsTable = $("#paymentsTable").DataTable({
-    responsive: {
-      details: false,
-    },
+    dom: "lfrtBp",
+    buttons: ["excel", "pdf", "print"],
   });
   totalPayment = Intl.NumberFormat("en-GB", {
     style: "currency",
