@@ -1,1 +1,1 @@
-release: chmod a+x ./release-tasks.sh && ./release-tasks.sh
+release: ./scripts/admin_setup
