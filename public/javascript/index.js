@@ -9,12 +9,13 @@ $(document).ready(function () {
   });
 
   try {
+    var total = paymentsTable.column(3, { filter: "applied" }).data().sum();
     totalPayment = Intl.NumberFormat("en-GB", {
       style: "currency",
       currency: "NGN",
       maximumFractionDigits: 0,
       minimumFractionDigits: 0,
-    }).format(paymentsTable.column(3).data().sum());
+    }).format(total);
     $("#value").append(totalPayment);
   } catch (e) {}
 
@@ -25,5 +26,16 @@ $(document).ready(function () {
   $("#close-menu").on("click", function (e) {
     // $(".side-bar").toggle("display");
     $(".side-bar").hide();
+  });
+
+  $("#paymentsTable_filter input").on("keyup", function () {
+    var total = paymentsTable.column(3, { search: "applied" }).data().sum();
+    totalPayment = Intl.NumberFormat("en-GB", {
+      style: "currency",
+      currency: "NGN",
+      maximumFractionDigits: 0,
+      minimumFractionDigits: 0,
+    }).format(total);
+    $("#value").html(totalPayment);
   });
 });
