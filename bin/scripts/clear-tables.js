@@ -1,12 +1,12 @@
 const { Bill, Payment } = require("../../db/models");
 
 try {
-  await Payment.destroy({
+  Payment.destroy({
     where: {},
     truncate: true,
   });
 
-  await Bill.destroy({
+  Bill.destroy({
     where: {},
     truncate: true,
   });
