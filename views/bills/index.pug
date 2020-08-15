@@ -14,6 +14,7 @@ block content
         div(class="table__header__column") Amount
         div(class="table__header__column") Created
         div(class="table__header__column") Action
+        div(class="table__header__column")
       div(class="table__body")
         each bill in bills
           div(class="table__row")
@@ -23,3 +24,6 @@ block content
             div(class="table__row__column")
               a(href=`/payments?bill=${bill.id}`)
                 button.btn.btn--link-to View Payments
+            div(class="table__row__column")
+              a(href=`/bills/${bill.id}/edit`)
+                button.btn.btn--new <i class="fas fa-edit"></i> Edit
