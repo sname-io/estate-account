@@ -6,6 +6,7 @@ block content
     table#apartmentsTable.clearfix
       thead
         tr
+          th id
           th Address
           th Bill
           th Actions
@@ -13,6 +14,7 @@ block content
       tbody
          each apartment in apartments
           tr
+            td=apartment.id
             td=apartment.address()
             td=apartment.name
             td

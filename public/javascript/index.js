@@ -59,10 +59,26 @@ $(document).ready(function () {
   });
 
   initializeApartmentTable();
+
+  $(".modal--confirm-button").on("click", function (e) {
+    const url = $(e.currentTarget).data("href");
+    window.location = url;
+  });
+
+  $(".modal--cancel-button").on("click", function (e) {
+    $(".modal--confirm-button").data("href", "");
+    $("#delete-modal-preview").removeClass("show");
+  });
+
+  $(".delete").on("click", (e) => {
+    const url = $(e.currentTarget).data("href");
+    $("#delete-modal-preview").addClass("show");
+    $(".modal--confirm-button").data("href", url);
+  });
 });
 
 function initializeApartmentTable() {
   var apartmentsTable = $("#apartmentsTable").DataTable({
-    order: [[0, "desc"]],
+    order: [[0, "asc"]],
   });
 }

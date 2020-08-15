@@ -210,8 +210,10 @@ a {
 
 .btn {
   font-size: 13px;
-  border: none;
-  padding: 7px 10px;
+}
+
+.btn:focus {
+  outline: none;
 }
 
 .btn--new {
@@ -230,11 +232,37 @@ a {
 
 .btn--primary {
   color: #fff;
+
   background-color: #1761fd;
   border-color: #1761fd;
   border: 1px solid transparent;
   border-radius: 0.3em;
   padding: 0.7em 1em;
+}
+
+.btn--neutral {
+  color: #4a5568;
+  cursor: pointer;
+  background-color: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.3em;
+  padding: 0.7em 1em;
+  margin-right: 5px;
+}
+
+.btn--neutral:focus {
+  outline: none;
+}
+
+.btn--danger {
+  color: #fff;
+  cursor: pointer;
+  background-color: #d32929;
+  border-color: #d32929;
+  border: 1px solid transparent;
+  border-radius: 0.3em;
+  padding: 0.7em 1em;
+  margin-left: 5px;
 }
 
 .btn--new--bill {
@@ -245,12 +273,17 @@ a {
   color: #718096;
   color: rgba(113, 128, 150, 1);
   padding: 0.8em 1em;
+  border: none;
   border-radius: 0.375rem;
   font-weight: 500;
   cursor: pointer;
 }
 
 .btn--link-to--success {
+}
+
+.fa-trash {
+  cursor: pointer;
 }
 
 .card__title {
@@ -386,11 +419,6 @@ a {
 }
 
 /* general buttons */
-
-.btn {
-  font-size: 13px;
-  border: none;
-}
 
 .btn--new {
   padding: 7px 10px;

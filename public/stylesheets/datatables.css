@@ -173,7 +173,7 @@ th {
   font-size: 20px;
 }
 
-#delete {
+.delete {
   color: #ca2a2a;
   margin-left: 2em;
 }
