@@ -3,20 +3,20 @@ extends ../layout
 block content
   div(class="card__title") Apartments
   div(class="card__body")
-    div(class="table bills")
-      div(class="table__header")
-        div(class="table__header__column") Address
-        div(class="table__header__column") Name
-        div(class="table__header__column") Action
-        div(class="table__header__column")
-      div(class="table__body")
-        each apartment in apartments
-          div(class="table__row")
-            div(class="table__row__column")= apartment.address()
-            div(class="table__row__column")= apartment.name
-            div(class="table__row__column")
+    table#apartmentsTable.clearfix
+      thead
+        tr
+          th Address
+          th Bill
+          th Actions
+          th
+      tbody
+         each apartment in apartments
+          tr
+            td=apartment.address()
+            td=apartment.name
+            td
               a(href=`/payments?apartment=${apartment.id}`) View Payments
-            div(class="table__row__column")
+            td
               a(href=`/apartments/${apartment.id}/edit`)
                 button.btn.btn--new <i class="fas fa-edit"></i> Edit
-    include ../partials/_pagination

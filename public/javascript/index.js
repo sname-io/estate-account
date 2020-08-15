@@ -57,4 +57,12 @@ $(document).ready(function () {
     }).format(total);
     $("#value").html(totalPayment);
   });
+
+  initializeApartmentTable();
 });
+
+function initializeApartmentTable() {
+  var apartmentsTable = $("#apartmentsTable").DataTable({
+    order: [[1, "desc"]],
+  });
+}
