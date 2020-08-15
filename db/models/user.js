@@ -9,6 +9,10 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
 
+    isSuperAdmin() {
+      return this.role === "superAdmin";
+    }
+
     async isValidPassword(password) {
       try {
         return await bcrypt.compare(password, this.password);

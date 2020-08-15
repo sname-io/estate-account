@@ -4,8 +4,9 @@ block content
 
   div(class="card__title clearfix")
     span Bills
-    a(href="/bills/new")
-      button.btn.btn--new.btn--new--bill <i class="fas fa-plus"></i> New Bill
+    if currentUser.isSuperAdmin()
+      a(href="/bills/new")
+        button.btn.btn--new.btn--new--bill <i class="fas fa-plus"></i> New Bill
   div(class="card__body")
     div(class="table bills")
       div(class="table__header")

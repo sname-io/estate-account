@@ -11,6 +11,11 @@ class BillController {
   }
 
   static getNewBill(req, res, next) {
+    if (!req.user.isSuperAdmin()) {
+      req.flash("error", "Unauthorized");
+      req.res.redirect("/bills");
+    }
+
     res.render("bills/new", { name: "", amount: "" });
   }
 

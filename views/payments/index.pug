@@ -15,7 +15,7 @@ block content
           th Bill
           th Amount
           th Paid On
-          th Action
+          th Actions
       tbody
          each payment in payments
           tr
@@ -26,8 +26,16 @@ block content
             td= payment.formattedAmount()
             td= payment.formattedCreatedAt()
             td
-              a(href=`/payments/${payment.id}/approve`)
-                button.btn.btn--link-to Approve
+              if payment.approved()
+                span(class="badge badge--success") Approved
+              if currentUser.isSuperAdmin()
+                if !payment.approved()
+                  a(href=`/payments/${payment.id}/approve`)
+                    button.btn.btn--link-to Approve
+                a(href=`/payments/${payment.id}/delete`)
+                  span.fas.fa-trash#delete=auth
+
+
     div#total-payment
       div.title Total Payments: &nbsp;
       div#value

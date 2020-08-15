@@ -61,20 +61,41 @@ class PaymentController {
     const { id } = req.params;
 
     try {
+      if (!req.user.isSuperAdmin()) {
+        throw "Unauthorized";
+      }
+
       const payment = await Payment.findByPk(id);
+
       payment.approvedAt = new Date();
-      await payment.save;
+      await payment.save();
       req.flash("success", "Payment Approved");
     } catch (err) {
       req.flash("error", "Could not approve payment");
     }
-    res.redirect("payments/index");
+    res.redirect("/payments");
+  }
+
+  static async deletePayment(req, res) {
+    const { id } = req.params;
+    console.log("this is id", id);
+    try {
+      const payment = await Payment.findByPk(id);
+      await payment.destroy();
+      req.flash("success", "Payment Deleted");
+    } catch (err) {
+      req.flash("error", "Could not delete payment");
+    }
+    res.redirect("/payments");
   }
 
   static async getPaymentById(req, res) {
     const { id } = req.params;
     try {
       const payment = await Payment.findByPk(id);
+      if (!payment) {
+        throw "Payment not forund";
+      }
       res.render(`payments/show`, {
         payment: payment,
         title: "Payments",
@@ -82,7 +103,7 @@ class PaymentController {
       });
     } catch (err) {
       req.flash("error", "Could not find payment");
-      res.redirect("payments/index");
+      res.redirect("/payments");
     }
   }
 }

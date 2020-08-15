@@ -13,6 +13,10 @@ module.exports = (sequelize, DataTypes) => {
       });
     }
 
+    approved() {
+      return this.approvedAt !== null;
+    }
+
     formattedCreatedAt() {
       return moment(this.createdAt).format("DD-MM-YYYY");
       // moment().format("MMMM Do YYYY, h:mm:ss a");
@@ -37,7 +41,7 @@ module.exports = (sequelize, DataTypes) => {
       apartmentId: DataTypes.INTEGER,
       billId: DataTypes.INTEGER,
       receiptNumber: DataTypes.STRING,
-      approved_at: DataTypes.DATE,
+      approvedAt: DataTypes.DATE,
     },
     {
       hooks: {

@@ -18,6 +18,7 @@ var paymentsRouter = require("./routes/payments");
 require("dotenv").config();
 
 var app = express();
+require("express-dynamic-helpers-patch")(app);
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -48,6 +49,12 @@ app.use("/users", usersRouter);
 app.use("/bills", billsRouter);
 app.use("/apartments", apartmentsRouter);
 app.use("/payments", paymentsRouter);
+
+app.dynamicHelpers({
+  currentUser: function (req, res) {
+    return req.user;
+  },
+});
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
