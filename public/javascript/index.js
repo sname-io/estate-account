@@ -63,6 +63,6 @@ $(document).ready(function () {
 
 function initializeApartmentTable() {
   var apartmentsTable = $("#apartmentsTable").DataTable({
-    order: [[1, "desc"]],
+    order: [[0, "desc"]],
   });
 }
