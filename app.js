@@ -14,6 +14,7 @@ var usersRouter = require("./routes/users");
 var billsRouter = require("./routes/bills");
 var apartmentsRouter = require("./routes/apartments");
 var paymentsRouter = require("./routes/payments");
+var methodOverride = require("method-override");
 
 require("dotenv").config();
 
@@ -23,6 +24,8 @@ require("express-dynamic-helpers-patch")(app);
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
+
+app.use(methodOverride("_method"));
 
 app.use(logger("dev"));
 app.use(express.json());

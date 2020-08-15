@@ -1,0 +1,16 @@
+extends ../layout
+
+block content
+  div.card__title
+    span Edit Bill
+    p.card__hint Edit a Bill
+  form.new-bill(action=`/bills/${bill.id}?_method=PUT`, method="post")
+    div.card__body
+      div.form-group
+        label(for='name') Name
+        input#form-name(type='text' name='name' value=`${bill.name}` placeholder='Name of Bill')
+      div.form-group
+        label(for='amount') Amount
+        input#form-payment(type='number' name='amount' value=`${bill.amount}` placeholder='Amount')
+      div.form-group
+        input.btn--primary.btn--save(type='submit' value='Update')

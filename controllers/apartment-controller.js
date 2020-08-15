@@ -21,6 +21,32 @@ class ApartmentController {
       pages: paginate.getArrayPages(req)(5, pageCount, req.query.page),
     });
   }
+
+  static async editApartment(req, res, next) {
+    const { id } = req.params;
+    const apartment = await Apartment.findByPk(id);
+
+    res.render("apartments/edit", { apartment });
+  }
+
+  static async updateApartment(req, res, next) {
+    const { id } = req.params;
+    const { name } = req.body;
+
+    try {
+      const apartment = await Apartment.update(
+        {
+          name: name,
+        },
+        { where: { id: id } }
+      );
+      req.flash("success", "Apartment updated");
+      res.redirect("/apartments");
+    } catch (err) {
+      req.flash("error", "Could not update apartment");
+      res.render("apartments/edit", { apartment });
+    }
+  }
 }
 
 module.exports = ApartmentController;
