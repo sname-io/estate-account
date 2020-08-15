@@ -4,7 +4,26 @@ $(document).ready(function () {
 
   var paymentsTable = $("#paymentsTable").DataTable({
     dom: "lfrtBp",
-    buttons: ["excel", "pdf", "print"],
+    buttons: [
+      {
+        extend: "excelHtml5",
+        exportOptions: {
+          columns: [0, 1, 2, 3],
+        },
+      },
+      {
+        extend: "pdfHtml5",
+        exportOptions: {
+          columns: [0, 1, 2, 3],
+        },
+      },
+      {
+        extend: "print",
+        exportOptions: {
+          columns: [0, 1, 2, 3],
+        },
+      },
+    ],
     order: [[4, "desc"]],
   });
 
