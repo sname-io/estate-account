@@ -4,11 +4,13 @@ const { Bill, Apartment } = require("../db/models");
 class PaymentController {
   static async getNewPayment(req, res, next) {
     const bills = await Bill.findAll();
+    const { apartment } = req.query;
     const apartments = await Apartment.findAll();
     res.render("payments/new", {
       bills: bills,
       apartments: apartments,
       active: "payments",
+      apartmentId: apartment,
     });
   }
 
@@ -24,10 +26,20 @@ class PaymentController {
       include: [Bill, Apartment],
     });
 
+    let newUrl;
+
+    if (apartment) {
+      newUrl = `/payments/new?apartment=${apartment}`;
+    } else {
+      newUrl = `/payments/new`;
+    }
+
     res.render("payments/index", {
       payments,
       title: "Payments",
       active: "payments",
+      apartment: apartment,
+      newUrl,
     });
   }
 

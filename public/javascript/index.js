@@ -10,18 +10,30 @@ $(document).ready(function () {
         exportOptions: {
           columns: [0, 1, 2, 3],
         },
+        messageTop: function () {
+          return $("#total-payment").text();
+        },
+        footer: true,
       },
       {
         extend: "pdfHtml5",
         exportOptions: {
           columns: [0, 1, 2, 3],
         },
+        messageTop: function () {
+          return $("#total-payment").text();
+        },
+        footer: true,
       },
       {
         extend: "print",
         exportOptions: {
           columns: [0, 1, 2, 3],
         },
+        messageTop: function () {
+          return $("#total-payment").text();
+        },
+        footer: true,
       },
     ],
     order: [[4, "desc"]],

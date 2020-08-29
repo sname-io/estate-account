@@ -15,7 +15,10 @@ block content
         label(for='apartmentId') Apartment
         select.apartments-dropdown(name="apartmentId")
           each apartment in apartments
-            option(value=`${apartment.id}`)=apartment.address()
+            if apartmentId == apartment.id
+              option(value=`${apartment.id}` selected=true)=apartment.address()
+            else
+              option(value=`${apartment.id}`)=apartment.address()
       div.form-group
         label(for='amount') Amount
         input#form-payment(type='number' name='amount' value=`${amount}` placeholder='Amount')

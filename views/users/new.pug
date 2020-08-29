@@ -1,0 +1,22 @@
+extends ../layout
+
+block content
+  div.card__title
+    span New User
+    p.card__hint Create a new user
+  form.new-bill(action='/users', method="POST")
+    div.card__body
+      div.form-group
+        label(for='name') Username
+        input#form-name(type='text' name='username'  placeholder='Username')
+      div.form-group
+        label(for='name') Password
+        input#form-name(type='password' name='password'  placeholder='Password')
+      div.form-group
+        label(for='role') Role
+        select.roles-dropdown(name="role")
+          option(value='admin') Admin
+          option(value='superAdmin') Super Admin
+      div.form-group
+        input.btn--primary.btn--save(type='submit' value='Save')
+

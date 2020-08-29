@@ -458,7 +458,8 @@ label {
 }
 
 input[type="text"],
-input[type="number"] {
+input[type="number"],
+input[type="password"] {
   border: 1px solid #ecf2fa;
   border-radius: 5px;
   box-sizing: border-box;

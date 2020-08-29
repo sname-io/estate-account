@@ -4,13 +4,13 @@ block content
 
   div(class="card__title clearfix")
     span Payments
-    a(href="/payments/new")
+    a(href=`${newUrl}`)
       button.btn.btn--new.btn--new--bill <i class="fas fa-plus"></i> New Payment
   div(class="card__body")
     table#paymentsTable.clearfix
       thead
         tr
-          th Receipt Number
+          th Payment Number
           th Apartment
           th Bill
           th Amount
@@ -32,7 +32,7 @@ block content
                 if !payment.approved()
                   a(href=`/payments/${payment.id}/approve`)
                     button.btn.btn--link-to Approve
-                  span.fas.fa-trash.delete(data-href=`/payments/${payment.id}/delete`)=auth
+                span.fas.fa-trash.delete(data-href=`/payments/${payment.id}/delete`)=auth
 
 
     div#total-payment
