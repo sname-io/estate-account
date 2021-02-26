@@ -10,12 +10,12 @@ const db = {};
 
 let sequelize;
 if (config.use_env_variable) {
-  sequelize = new Sequelize(process.env[config.use_env_variable], , {
-  dialect: 'postgres',
-  dialectOptions: {
-    ssl: true
-  }
-});
+  sequelize = new Sequelize(process.env[config.use_env_variable], {
+    dialect: "postgres",
+    dialectOptions: {
+      ssl: true,
+    },
+  });
 } else {
   sequelize = new Sequelize(
     config.database,
