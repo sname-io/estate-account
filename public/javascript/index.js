@@ -87,6 +87,11 @@ $(document).ready(function () {
     $("#delete-modal-preview").addClass("show");
     $(".modal--confirm-button").data("href", url);
   });
+
+  $(".new-bill").on("submit", function () {
+    $(".btn--save").prop("disabled", true);
+    $(".btn--save").css("opacity", "0.6");
+  });
 });
 
 function initializeApartmentTable() {

@@ -40,16 +40,19 @@ module.exports = (sequelize, DataTypes) => {
       adminId: DataTypes.INTEGER,
       apartmentId: DataTypes.INTEGER,
       billId: DataTypes.INTEGER,
-      receiptNumber: DataTypes.STRING,
+      receiptNumber: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true,
+      },
       approvedAt: DataTypes.DATE,
     },
     {
       hooks: {
-        beforeCreate: async (payment, options) => {
-          const sr = await srs({ length: 10, alphanumeric: true });
-
-          payment.receiptNumber = sr.toUpperCase();
-        },
+        // beforeCreate: async (payment, options) => {
+        //   const sr = srs({ length: 10, alphanumeric: true });
+        //   payment.receiptNumber = sr.toUpperCase();
+        // },
       },
       sequelize,
       modelName: "Payment",

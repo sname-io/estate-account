@@ -7,6 +7,9 @@ block content
   form.new-bill(action='/payments', method="POST")
     div.card__body
       div.form-group
+        label(for='amount') Receipt Number
+        input#form-payment(type='text' name='receiptNumber' value=`${receiptNumber}` placeholder='receipt Number')
+      div.form-group
         label(for='BillId') Bill
         select.bills-dropdown(name="billId")
           each bill in bills
@@ -22,6 +25,7 @@ block content
       div.form-group
         label(for='amount') Amount
         input#form-payment(type='number' name='amount' value=`${amount}` placeholder='Amount')
+        
       div.form-group
         input.btn--primary.btn--save(type='submit' value='Save')
 

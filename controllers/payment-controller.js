@@ -1,16 +1,19 @@
 const { Payment } = require("../db/models");
 const { Bill, Apartment } = require("../db/models");
+var srs = require("secure-random-string");
 
 class PaymentController {
   static async getNewPayment(req, res, next) {
     const bills = await Bill.findAll();
     const { apartment } = req.query;
     const apartments = await Apartment.findAll();
+    const sr = srs({ length: 10, alphanumeric: true });
     res.render("payments/new", {
       bills: bills,
       apartments: apartments,
       active: "payments",
       apartmentId: apartment,
+      receiptNumber: sr.toUpperCase(),
     });
   }
 
@@ -44,27 +47,33 @@ class PaymentController {
   }
 
   static async CreatePayment(req, res, next) {
-    const { apartmentId, amount, billId } = req.body;
+    const { apartmentId, amount, billId, receiptNumber } = req.body;
 
     try {
       await Payment.create({
         billId,
         apartmentId,
         amount,
+        receiptNumber,
         adminId: req.user.id,
         paidAt: new Date(),
       });
       req.flash("success", "Payment recorded successfully");
       res.redirect("/payments");
     } catch (err) {
-      console.log("insertion error is here: ", err);
       const bills = await Bill.findAll();
       const apartments = await Apartment.findAll();
-      req.flash("error", "Could not record payment");
+      let e = "Could not record payment";
+      if (err.errors && err.errors[0] && err.errors[0].message) {
+        e = err.errors[0].message;
+      }
+
+      req.flash("error", e);
       res.render("payments/new", {
         amount,
         bills,
         apartments,
+        receiptNumber,
       });
     }
   }
@@ -90,7 +99,6 @@ class PaymentController {
 
   static async deletePayment(req, res) {
     const { id } = req.params;
-    console.log("this is id", id);
     try {
       const payment = await Payment.findByPk(id);
       await payment.destroy();
