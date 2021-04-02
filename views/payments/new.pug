@@ -8,7 +8,8 @@ block content
     div.card__body
       div.form-group
         label(for='amount') Receipt Number
-        input#form-payment(type='text' name='receiptNumber' value=`${receiptNumber}` placeholder='receipt Number')
+        input#form-payment(type='text' name='receiptNumberVisual' value=`${receiptNumber}` placeholder='receipt Number' disabled='disabled')
+        input#form-payment(type='hidden' name='receiptNumber' value=`${receiptNumber}` placeholder='receipt Number')
       div.form-group
         label(for='BillId') Bill
         select.bills-dropdown(name="billId")
