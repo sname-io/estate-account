@@ -7,7 +7,7 @@ block content
     a(href=`${newUrl}`)
       button.btn.btn--new.btn--new--bill <i class="fas fa-plus"></i> New Payment
   div(class="card__body")
-    table#paymentsTable.clearfix
+    table#paymentsTable.clearfix.full
       thead
         tr
           th Payment Number
@@ -15,16 +15,18 @@ block content
           th Bill
           th Amount
           th Paid On
+          th Admin
           th Actions
       tbody
          each payment in payments
           tr
             td
               a(href=`/payments/${payment.id}`, class="view")=payment.receiptNumber
-            td=payment.Apartment.address()
+            td=payment.Apartment.shortAddress()
             td=payment.Bill.name
             td= payment.formattedAmount()
             td= payment.formattedCreatedAt()
+            td= payment.processedBy()
             td
               if payment.approved()
                 span(class="badge badge--success") Approved

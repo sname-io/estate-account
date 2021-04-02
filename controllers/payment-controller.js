@@ -1,5 +1,5 @@
 const { Payment } = require("../db/models");
-const { Bill, Apartment } = require("../db/models");
+const { Bill, Apartment, User } = require("../db/models");
 var srs = require("secure-random-string");
 
 class PaymentController {
@@ -26,7 +26,7 @@ class PaymentController {
 
     const payments = await Payment.findAll({
       where: filters,
-      include: [Bill, Apartment],
+      include: [Bill, Apartment, User],
     });
 
     let newUrl;

@@ -8,7 +8,7 @@ $(document).ready(function () {
       {
         extend: "excelHtml5",
         exportOptions: {
-          columns: [0, 1, 2, 3],
+          columns: [0, 1, 2, 3, 5],
         },
         messageTop: function () {
           return $("#total-payment").text();
@@ -18,7 +18,7 @@ $(document).ready(function () {
       {
         extend: "pdfHtml5",
         exportOptions: {
-          columns: [0, 1, 2, 3],
+          columns: [0, 1, 2, 3, 5],
         },
         messageTop: function () {
           return $("#total-payment").text();
@@ -28,12 +28,18 @@ $(document).ready(function () {
       {
         extend: "print",
         exportOptions: {
-          columns: [0, 1, 2, 3],
+          columns: [0, 1, 2, 3, 5],
         },
         messageTop: function () {
           return $("#total-payment").text();
         },
         footer: true,
+      },
+    ],
+    columnDefs: [
+      {
+        targets: [5],
+        visible: false,
       },
     ],
     order: [[4, "desc"]],

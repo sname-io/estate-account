@@ -13,14 +13,18 @@ module.exports = (sequelize, DataTypes) => {
       });
     }
 
+    processedBy() {
+      return this.User.username;
+    }
+
     approved() {
       return this.approvedAt !== null;
     }
 
     formattedCreatedAt() {
       return moment(this.createdAt).format("DD-MM-YYYY");
-      // moment().format("MMMM Do YYYY, h:mm:ss a");
     }
+
     static associate(models) {
       Payment.belongsTo(models.Apartment, {
         onDelete: "CASCADE",
@@ -30,6 +34,10 @@ module.exports = (sequelize, DataTypes) => {
       Payment.belongsTo(models.Bill, {
         onDelete: "CASCADE",
         foreignKey: "billId",
+      });
+      Payment.belongsTo(models.User, {
+        onDelete: "CASCADE",
+        foreignKey: "adminId",
       });
     }
   }

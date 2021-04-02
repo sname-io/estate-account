@@ -10,6 +10,9 @@ module.exports = (sequelize, DataTypes) => {
     address() {
       return `Block ${this.block_number} flat ${this.flat}`;
     }
+    shortAddress() {
+      return `Blk ${this.block_number} Flt ${this.flat}`;
+    }
 
     static associate(models) {
       Apartment.hasMany(models.Payment, {
