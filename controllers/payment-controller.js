@@ -82,10 +82,6 @@ class PaymentController {
     const { id } = req.params;
 
     try {
-      if (!req.user.isSuperAdmin()) {
-        throw "Unauthorized";
-      }
-
       const payment = await Payment.findByPk(id);
 
       payment.approvedAt = new Date();
@@ -114,7 +110,7 @@ class PaymentController {
     try {
       const payment = await Payment.findByPk(id);
       if (!payment) {
-        throw "Payment not forund";
+        throw "Payment not found";
       }
       res.render(`payments/show`, {
         payment: payment,

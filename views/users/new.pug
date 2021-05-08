@@ -13,8 +13,9 @@ block content
         label(for='name') Password
         input#form-name(type='password' name='password'  placeholder='Password')
       div.form-group
-        label(for='role') Role
-        select.roles-dropdown(name="role")
+        label(for='role') Role &nbsp;
+        select.roles-dropdown.form-select(name="role")
+          option(value='regular') Regular
           option(value='admin') Admin
           option(value='superAdmin') Super Admin
       div.form-group
