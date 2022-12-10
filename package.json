@@ -23,7 +23,7 @@
     "currency-formatter": "^1.5.5",
     "debug": "~2.6.9",
     "dotenv": "^8.2.0",
-    "express": "~4.16.1",
+    "express": "~4.17.3",
     "express-dynamic-helpers-patch": "0.0.2",
     "express-flash": "git://github.com/RGBboy/express-flash.git",
     "express-paginate": "^1.0.2",
